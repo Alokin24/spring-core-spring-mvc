@@ -4,28 +4,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class InjectedByConstructorService {
-
-
+public class SetterBasedService {
     private HelloWorldService helloWorldService;
 
-    public InjectedByConstructorService() {
+    public SetterBasedService() {
 
     }
 
     @Autowired
-    public InjectedByConstructorService(HelloWorldService helloWorldService) {
+    public void setHelloWorldService(HelloWorldService helloWorldService) {
         this.helloWorldService = helloWorldService;
     }
 
     public void getMessage() {
         helloWorldService.sayHello();
     }
-
-    public void setHelloWorldService(HelloWorldService helloWorldService) {
-        this.helloWorldService = helloWorldService;
-    }
-
-
-
 }
